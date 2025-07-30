@@ -1,39 +1,49 @@
-<!--
-This README describes the package. If you publish this package to pub.dev,
-this README's contents appear on the landing page for your package.
+# easy_form_validator ✨
 
-For information about how to write a good package README, see the guide for
-[writing package pages](https://dart.dev/tools/pub/writing-package-pages).
+[![pub package](https://img.shields.io/pub/v/easy_form_validator.svg)](https://pub.dev/packages/easy_form_validator)
+[![GitHub stars](https://img.shields.io/github/stars/virajodedra/easy_form_validator)](https://github.com/virajodedra/easy_form_validator/stargazers)
 
-For general information about developing packages, see the Dart guide for
-[creating packages](https://dart.dev/guides/libraries/create-packages)
-and the Flutter guide for
-[developing packages and plugins](https://flutter.dev/to/develop-packages).
--->
+A beginner-friendly Flutter package that simplifies form validation using ready-to-use validators and custom input widgets for clean and maintainable code.
 
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
+---
 
-## Features
+## 🚀 Features
 
-TODO: List what your package can do. Maybe include images, gifs, or videos.
+✅ Pre-built form validators  
+✅ Easy-to-use email and password fields  
+✅ Beginner-friendly and readable code  
+✅ GetX/OOP/SOLID-ready structure  
+✅ MIT Licensed – Free for personal and commercial use
 
-## Getting started
+---
 
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
+## 🧪 Available Validators
 
-## Usage
+- `EasyValidators.email()`
+- `EasyValidators.password()`
+- `EasyValidators.confirmPassword()`
+- `EasyValidators.name()`
+- `EasyValidators.phone()`
+- `EasyValidators.age()`
+- `EasyValidators.minLength()`
+- `EasyValidators.maxLength()`
+- `EasyValidators.notEmpty()`
 
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder.
+---
 
-```dart
-const like = 'sample';
-```
+## 🧩 Widgets
 
-## Additional information
+- `EasyEmailField`
+- `EasyPasswordField`
 
-TODO: Tell users more about the package: where to find more information, how to
-contribute to the package, how to file issues, what response they can expect
-from the package authors, and more.
+More coming soon...
+
+---
+
+## 🛠️ Installation
+
+In your `pubspec.yaml`:
+
+```yaml
+dependencies:
+  easy_form_validator: ^0.0.1
