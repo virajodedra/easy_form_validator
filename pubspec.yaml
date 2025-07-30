@@ -1,6 +1,6 @@
 name: flutter_validx
 description: A beginner-friendly Flutter package that makes form validation clean and easy with prebuilt validators and ready-to-use input widgets.
-version: 0.0.5
+version: 0.0.6
 homepage: https://github.com/virajodedra/easy_form_validator
 repository: https://github.com/virajodedra/easy_form_validator
 example: example/example.dart
