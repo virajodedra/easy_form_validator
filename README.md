@@ -3,7 +3,7 @@
 [![pub package](https://img.shields.io/pub/v/flutter_validx.svg)](https://pub.dev/packages/flutter_validx)
 [![GitHub stars](https://img.shields.io/github/stars/virajodedra/flutter_validx)](https://github.com/virajodedra/flutter_validx/stargazers)
 
-A beginner-friendly Flutter package that simplifies form validation using ready-to-use validators and custom input widgets for clean and maintainable code.
+A beginner-friendly Flutter package for form validation — prebuilt validators and easy-to-use widgets like `EasyEmailField`, `EasyPasswordField`, and more.
 
 ---
 
