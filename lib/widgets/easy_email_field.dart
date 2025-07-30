@@ -1,30 +1,37 @@
 import 'package:flutter/material.dart';
 import '../validators/validator.dart';
 
+/// A pre-styled `TextFormField` for validating email input.
+///
+/// It comes with built-in email validation and customizable [hintText].
 class EasyEmailField extends StatelessWidget {
+  /// Controller for managing the input text.
   final TextEditingController controller;
-  final String label;
-  final String? hintText;
 
+  /// Placeholder text shown in the input field.
+  final String hintText;
+
+  /// Creates an [EasyEmailField] widget.
+  ///
+  /// [controller] is required.
+  /// [hintText] defaults to 'Email' if not provided.
   const EasyEmailField({
     super.key,
     required this.controller,
-    this.label = 'Email',
-    this.hintText,
+    this.hintText = 'Email',
   });
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
       controller: controller,
-      keyboardType: TextInputType.emailAddress,
-      validator: EasyValidators.email,
+      validator: Validator.email(),
       decoration: InputDecoration(
-        labelText: label,
-        hintText: hintText,
-        prefixIcon: const Icon(Icons.email),
+        labelText: hintText,
         border: const OutlineInputBorder(),
+        prefixIcon: const Icon(Icons.email),
       ),
+      keyboardType: TextInputType.emailAddress,
     );
   }
 }

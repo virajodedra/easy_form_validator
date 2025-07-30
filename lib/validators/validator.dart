@@ -1,67 +1,63 @@
-// File: lib/validators/validators.dart
-
-class EasyValidators {
-  static String? notEmpty(String? value, {String fieldName = 'Field'}) {
-    if (value == null || value.trim().isEmpty) {
-      return '$fieldName is required';
-    }
-    return null;
+/// A utility class for validating form input fields using predefined rules.
+class Validator {
+  /// Returns a validator that checks whether a field is not empty.
+  static String? Function(String?) required(
+      [String message = 'This field is required']) {
+    return (value) {
+      if (value == null || value.trim().isEmpty) return message;
+      return null;
+    };
   }
 
-  static String? email(String? value) {
-    if (value == null || value.trim().isEmpty) return 'Email is required';
-    final regex = RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}\$');
-    if (!regex.hasMatch(value)) return 'Enter a valid email';
-    return null;
+  /// Returns a validator that checks whether a field is a valid email.
+  static String? Function(String?) email(
+      [String message = 'Enter a valid email']) {
+    return (value) {
+      if (value == null || value.trim().isEmpty) return null;
+      final emailRegex = RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$');
+      if (!emailRegex.hasMatch(value)) return message;
+      return null;
+    };
   }
 
-  static String? password(String? value, {int minLength = 6}) {
-    if (value == null || value.trim().isEmpty) return 'Password is required';
-    if (value.length < minLength) return 'Minimum $minLength characters';
-    return null;
+  /// Returns a validator that checks whether a field has a minimum length.
+  static String? Function(String?) minLength(int min, [String? message]) {
+    return (value) {
+      if (value == null || value.length < min) {
+        return message ?? 'Minimum $min characters required';
+      }
+      return null;
+    };
   }
 
-  static String? confirmPassword(String? value, String original) {
-    if (value == null || value.trim().isEmpty)
-      return 'Please confirm your password';
-    if (value != original) return 'Passwords do not match';
-    return null;
+  /// Returns a validator that checks whether a field has a maximum length.
+  static String? Function(String?) maxLength(int max, [String? message]) {
+    return (value) {
+      if (value != null && value.length > max) {
+        return message ?? 'Maximum $max characters allowed';
+      }
+      return null;
+    };
   }
 
-  static String? name(String? value, {String fieldName = 'Name'}) {
-    if (value == null || value.trim().isEmpty) return '$fieldName is required';
-    if (value.length < 2) return '$fieldName must be at least 2 characters';
-    return null;
+  /// Returns a validator that checks whether a field matches another field's value.
+  static String? Function(String?) match(String valueToMatch,
+      [String? message]) {
+    return (value) {
+      if (value != valueToMatch) return message ?? 'Values do not match';
+      return null;
+    };
   }
 
-  static String? phone(String? value) {
-    if (value == null || value.trim().isEmpty)
-      return 'Phone number is required';
-    final phoneRegex = RegExp(r'^[0-9]{10}\$');
-    if (!phoneRegex.hasMatch(value))
-      return 'Enter a valid 10-digit phone number';
-    return null;
-  }
-
-  static String? age(String? value) {
-    if (value == null || value.trim().isEmpty) return 'Age is required';
-    final age = int.tryParse(value);
-    if (age == null || age < 0) return 'Enter a valid age';
-    return null;
-  }
-
-  static String? minLength(String? value, int min,
-      {String fieldName = 'Field'}) {
-    if (value == null || value.trim().isEmpty) return '$fieldName is required';
-    if (value.length < min)
-      return '$fieldName must be at least $min characters';
-    return null;
-  }
-
-  static String? maxLength(String? value, int max,
-      {String fieldName = 'Field'}) {
-    if (value == null || value.trim().isEmpty) return '$fieldName is required';
-    if (value.length > max) return '$fieldName must be at most $max characters';
-    return null;
+  /// Combines multiple validators into a single validator.
+  static String? Function(String?) combine(
+      List<String? Function(String?)> validators) {
+    return (value) {
+      for (final validator in validators) {
+        final result = validator(value);
+        if (result != null) return result;
+      }
+      return null;
+    };
   }
 }
