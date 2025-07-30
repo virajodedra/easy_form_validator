@@ -9,5 +9,3 @@ library easy_form_validator;
 export 'validators/validator.dart';
 export 'widgets/easy_email_field.dart';
 export 'widgets/easy_password_field.dart';
-
-
