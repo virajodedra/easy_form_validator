@@ -3,9 +3,7 @@
 [//]: # ()
 [//]: # ()
 [//]: # (* TODO: Describe initial release.)
-
-## [0.0.3] - 2025-07-30
-- Fixed structure and folder exports
-- Added full validation coverage for name, email, phone, password, age, and more
-- Cleaned up GitHub repo and prepared for first public release
-
+## [0.0.6] - 2025-07-30
+### Added
+- DartDoc comments for all public classes and methods
+- Added example usage file for pub.dev score
